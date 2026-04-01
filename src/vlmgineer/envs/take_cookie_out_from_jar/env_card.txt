@@ -1,0 +1,1 @@
+This is a description of the Take Cookie Out From Jar Environment. In this environment, you want to take the cookie in the jar out, which basically means the height of the cookie should be greater than the height of the jar.

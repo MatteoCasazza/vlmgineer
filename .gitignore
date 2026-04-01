@@ -1,0 +1,9 @@
+**/__pycache__/**
+API_KEY.sh
+api_key.sh
+**.DS_Store
+logs/
+**/models/panda/panda_tool_*.urdf
+baseline/logs_*
+.claude
+*.egg-info/

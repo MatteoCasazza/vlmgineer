@@ -1,0 +1,1 @@
+This is a description of the Elevate Plate Environment. In this environment, we would like to securely lift the plate. We consider lifting the plate to a height of 0.5 as a task success.

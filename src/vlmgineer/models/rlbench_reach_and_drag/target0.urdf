@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot name="target0">
+    <link name="robot_base">
+        <visual name="target0">
+            <origin xyz="0.113376 -0.153757 0.000915" rpy="-3.141593 3.141593 1.570796" />
+            <geometry>
+                <mesh filename="target0_robot_base_vis_1.dae" />
+            </geometry>
+            <material name="robot_base_material">
+                <color rgba="0.000000 1.000000 0.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+</robot>

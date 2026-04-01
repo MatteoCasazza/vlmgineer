@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<robot name="chef_stainless_steel_box">
+
+  <!-- Material Definition: Stainless Steel -->
+  <material name="stainless_steel">
+    <color rgba="0.96 0.87 0.70 1.0"/> <!-- Beige color -->
+  </material>
+
+  <!-- Base Link: Represents the pan itself. Its origin is at the center of the pan's bottom external face. -->
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0.0525" rpy="0 0 0"/> <!-- Approximate CoM for overall shape -->
+      <mass value="1.4"/> <!-- Increased mass for longer pan -->
+      <!-- Inertia tensor for a solid box approximating the overall pan dimensions (Outer WxLxH ~ 0.295m x 0.555m x 0.105m) -->
+      <!-- Ixx = (1/12)*m*(y^2+z^2) -->
+      <!-- Iyy = (1/12)*m*(x^2+z^2) -->
+      <!-- Izz = (1/12)*m*(x^2+y^2) -->
+      <inertia ixx="0.03142" ixy="0.0" ixz="0.0"
+               iyy="0.00817" iyz="0.0"
+               izz="0.03775"/>
+    </inertial>
+  </link>
+
+  <!--
+  Original Dimensions Used for Calculations:
+  pan_width_outer (X-axis, shorter side): 0.265m
+  pan_length_outer (Y-axis, longer side): 0.525m (increased from 0.425m)
+  pan_body_depth (Z-axis, height of the main part): 0.100m
+  wall_thickness: 0.002m
+  lip_overhang: 0.015m
+  lip_height: 0.005m
+  -->
+
+  <!-- 1. Bottom Plate of the Pan -->
+  <joint name="bottom_plate_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="bottom_plate_link"/>
+    <!-- Origin: z = wall_thickness / 2 = 0.002 / 2 = 0.001 -->
+    <origin xyz="0 0 0.001" rpy="0 0 0"/>
+  </joint>
+  <link name="bottom_plate_link">
+    <visual>
+      <geometry>
+        <box size="0.265 0.525 0.002"/> <!-- pan_width_outer, pan_length_outer, wall_thickness -->
+      </geometry>
+      <material name="stainless_steel"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.265 0.525 0.002"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Walls of the Pan -->
+  <!-- Effective wall height = pan_body_depth (0.1) - wall_thickness (0.002) = 0.098m -->
+  <!-- Z-origin for walls = wall_thickness (0.002) + effective_wall_height/2 (0.049) = 0.051m -->
+
+  <!-- 2. Front Wall (+Y direction) -->
+  <joint name="front_wall_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="front_wall_link"/>
+    <!-- Origin Y: pan_length_outer/2 - wall_thickness/2 = 0.525/2 - 0.002/2 = 0.2625 - 0.001 = 0.2615 -->
+    <origin xyz="0 0.2615 0.051" rpy="0 0 0"/>
+  </joint>
+  <link name="front_wall_link">
+    <visual>
+      <geometry>
+        <box size="0.265 0.002 0.098"/> <!-- pan_width_outer, wall_thickness, effective_wall_height -->
+      </geometry>
+      <material name="stainless_steel"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.265 0.002 0.098"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- 3. Back Wall (-Y direction) -->
+  <joint name="back_wall_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="back_wall_link"/>
+    <!-- Origin Y: -(pan_length_outer/2 - wall_thickness/2) = -0.2615 -->
+    <origin xyz="0 -0.2615 0.051" rpy="0 0 0"/>
+  </joint>
+  <link name="back_wall_link">
+    <visual>
+      <geometry>
+        <box size="0.265 0.002 0.098"/>
+      </geometry>
+      <material name="stainless_steel"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.265 0.002 0.098"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- 4. Right Wall (+X direction) -->
+  <!-- Length of side walls: pan_length_outer (0.525) - 2*wall_thickness (0.004) = 0.521m -->
+  <joint name="right_wall_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="right_wall_link"/>
+    <!-- Origin X: pan_width_outer/2 - wall_thickness/2 = 0.265/2 - 0.002/2 = 0.1325 - 0.001 = 0.1315 -->
+    <origin xyz="0.1315 0 0.051" rpy="0 0 0"/>
+  </joint>
+  <link name="right_wall_link">
+    <visual>
+      <geometry>
+        <box size="0.002 0.521 0.098"/> <!-- wall_thickness, (pan_length_outer - 2*wall_thickness), effective_wall_height -->
+      </geometry>
+      <material name="stainless_steel"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.002 0.521 0.098"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- 5. Left Wall (-X direction) -->
+  <joint name="left_wall_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="left_wall_link"/>
+    <!-- Origin X: -(pan_width_outer/2 - wall_thickness/2) = -0.1315 -->
+    <origin xyz="-0.1315 0 0.051" rpy="0 0 0"/>
+  </joint>
+  <link name="left_wall_link">
+    <visual>
+      <geometry>
+        <box size="0.002 0.521 0.098"/>
+      </geometry>
+      <material name="stainless_steel"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.002 0.521 0.098"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Lip of the Pan -->
+  <!-- Lip Z-origin = pan_body_depth (0.1) + lip_height/2 (0.0025) = 0.1025m -->
+
+  <!-- 6. Lip - Front Section (along +Y edge) -->
+  <!-- Width of front/back lip piece: pan_width_outer (0.265) + 2*lip_overhang (0.030) = 0.295m -->
+  <joint name="lip_front_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="lip_front_link"/>
+    <!-- Origin Y: pan_length_outer/2 + lip_overhang/2 = 0.525/2 + 0.015/2 = 0.2625 + 0.0075 = 0.27 -->
+    <origin xyz="0 0.27 0.1025" rpy="0 0 0"/>
+  </joint>
+  <link name="lip_front_link">
+    <visual>
+      <geometry>
+        <box size="0.295 0.015 0.005"/> <!-- (pan_width_outer + 2*lip_overhang), lip_overhang_depth, lip_height -->
+      </geometry>
+      <material name="stainless_steel"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.295 0.015 0.005"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- 7. Lip - Back Section (along -Y edge) -->
+  <joint name="lip_back_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="lip_back_link"/>
+    <!-- Origin Y: -(pan_length_outer/2 + lip_overhang/2) = -0.27 -->
+    <origin xyz="0 -0.27 0.1025" rpy="0 0 0"/>
+  </joint>
+  <link name="lip_back_link">
+    <visual>
+      <geometry>
+        <box size="0.295 0.015 0.005"/>
+      </geometry>
+      <material name="stainless_steel"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.295 0.015 0.005"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- 8. Lip - Right Section (along +X edge) -->
+  <!-- Length of side lip piece: pan_length_outer (0.525m) -->
+  <joint name="lip_right_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="lip_right_link"/>
+    <!-- Origin X: pan_width_outer/2 + lip_overhang/2 = 0.265/2 + 0.015/2 = 0.1325 + 0.0075 = 0.14 -->
+    <origin xyz="0.14 0 0.1025" rpy="0 0 0"/>
+  </joint>
+  <link name="lip_right_link">
+    <visual>
+      <geometry>
+        <box size="0.015 0.525 0.005"/> <!-- lip_overhang_width, pan_length_outer, lip_height -->
+      </geometry>
+      <material name="stainless_steel"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.015 0.525 0.005"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- 9. Lip - Left Section (along -X edge) -->
+  <joint name="lip_left_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="lip_left_link"/>
+    <!-- Origin X: -(pan_width_outer/2 + lip_overhang/2) = -0.14 -->
+    <origin xyz="-0.14 0 0.1025" rpy="0 0 0"/>
+  </joint>
+  <link name="lip_left_link">
+    <visual>
+      <geometry>
+        <box size="0.015 0.525 0.005"/>
+      </geometry>
+      <material name="stainless_steel"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.015 0.525 0.005"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!--
+  NOTES on approximations due to "box only" constraint:
+  1. Rounded Corners: All corners (vertical and horizontal) are sharp. Real pans have rounded corners for cleaning and safety.
+  2. Tapered Sides: The pan is modeled with straight vertical sides. Real pans are slightly tapered (wider at the top) for stacking.
+  3. Rolled Lip Edge: The lip is modeled as a simple flat box. Real pans often have a rolled or flattened-U shape edge for strength and handling.
+  4. Wall Thickness: The `wall_thickness` and `lip_height` are slightly exaggerated to make them more visually distinct when rendered as boxes. Real pans are made of thinner sheet metal.
+  5. Construction: The pan is constructed from 9 separate box links (1 bottom, 4 walls, 4 lip segments) attached to a central base_link.
+  6. Inertia: Inertial properties are approximated for a solid bounding box of the overall pan.
+  -->
+
+</robot>

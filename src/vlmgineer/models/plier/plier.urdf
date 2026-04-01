@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<robot name="detailed_plier">
+
+  <!-- Materials -->
+  <material name="yellow_plastic">
+    <color rgba="1.0 0.8 0.0 1.0"/>
+  </material>
+  <material name="black_metal">
+    <color rgba="0.1 0.1 0.1 1.0"/>
+  </material>
+  <material name="dark_metal">
+    <color rgba="0.3 0.3 0.3 1.0"/>
+  </material>
+  <material name="polished_metal">
+    <color rgba="0.7 0.7 0.7 1.0"/>
+  </material>
+
+  <!-- ##################### BASE LINK (STATIC ARM) ##################### -->
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.05 0 0" rpy="0 0 0"/> <!-- Approximate CoM for the whole arm -->
+      <mass value="0.5"/> <!-- Increased mass for the base link -->
+      <!-- Approximate inertia for a slim object -->
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+
+    <!-- Visuals for Base Arm -->
+    <!-- Handle Part 1 (Main Grip) -->
+    <visual name="base_handle_grip">
+      <origin xyz="-0.105 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.15 0.027 0.027"/> <!-- Length, Width, Thickness -->
+      </geometry>
+      <material name="yellow_plastic"/>
+    </visual>
+    <!-- Handle Part 2 (Transition to Pivot) -->
+    <visual name="base_handle_transition">
+      <origin xyz="-0.0225 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.045 0.024 0.024"/>
+      </geometry>
+      <material name="yellow_plastic"/>
+    </visual>
+
+    <!-- Pivot Section (Half Cylinder) -->
+    <visual name="base_pivot_section">
+      <origin xyz="0 0 -0.009" rpy="0 0 0"/> <!-- Rotated to make length along Z, offset Z -->
+      <geometry>
+        <cylinder radius="0.018" length="0.012"/> <!-- Radius, Thickness of this half -->
+      </geometry>
+      <material name="black_metal"/>
+    </visual>
+
+    <!-- Jaw Part 1 (Base of Jaw) -->
+    <visual name="base_jaw_base">
+      <origin xyz="0.0375 0 -0.003" rpy="0 0 0"/> <!-- Jaw part is below centerline -->
+      <geometry>
+        <box size="0.045 0.0225 0.015"/>
+      </geometry>
+      <material name="black_metal"/>
+    </visual>
+    <!-- Jaw Part 2 (Tip of Jaw - Gripping Surface) -->
+    <visual name="base_jaw_tip">
+      <origin xyz="0.075 0.00225 -0.003" rpy="0 0 0"/> <!-- Slightly tapered/offset for gripping visual -->
+      <geometry>
+        <box size="0.03 0.012 0.021"/>
+      </geometry>
+      <material name="black_metal"/>
+    </visual>
+
+    <!-- Collision for Base Arm (Simplified) -->
+    <collision name="base_handle_collision">
+      <origin xyz="-0.105 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.15 0.027 0.027"/>
+      </geometry>
+    </collision>
+    <collision name="base_handle_transition_collision">
+      <origin xyz="-0.0225 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.045 0.024 0.024"/>
+      </geometry>
+    </collision>
+    <collision name="base_jaw_collision">
+      <origin xyz="0.05625 0 -0.003" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0825 0.0225 0.021"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ##################### MOVABLE ARM LINK ##################### -->
+  <link name="movable_arm_link">
+    <inertial>
+      <origin xyz="-0.075 0 0" rpy="0 0 0"/>
+      <mass value="0.5"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+
+    <!-- Visuals for Movable Arm -->
+    <!-- Handle Part 1 (Main Grip) -->
+    <visual name="movable_handle_grip">
+      <origin xyz="-0.105 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.15 0.027 0.027"/>
+      </geometry>
+      <material name="yellow_plastic"/>
+    </visual>
+    <!-- Handle Part 2 (Transition to Pivot) -->
+    <visual name="movable_handle_transition">
+      <origin xyz="-0.0225 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.045 0.024 0.024"/>
+      </geometry>
+      <material name="yellow_plastic"/>
+    </visual>
+
+    <!-- Pivot Section (Half Cylinder) -->
+    <visual name="movable_pivot_section">
+      <origin xyz="0 0 0.009" rpy="0 0 0"/> <!-- Rotated, offset Z opposite to base -->
+      <geometry>
+        <cylinder radius="0.018" length="0.012"/>
+      </geometry>
+      <material name="black_metal"/>
+    </visual>
+
+    <!-- Jaw Part 1 (Base of Jaw) -->
+    <visual name="movable_jaw_base">
+      <origin xyz="0.0375 0 0.003" rpy="0 0 0"/> <!-- Jaw part is above centerline -->
+      <geometry>
+        <box size="0.045 0.0225 0.015"/>
+      </geometry>
+      <material name="black_metal"/>
+    </visual>
+    <!-- Jaw Part 2 (Tip of Jaw - Gripping Surface) -->
+    <visual name="movable_jaw_tip">
+      <origin xyz="0.075 -0.00225 0.003" rpy="0 0 0"/> <!-- Slightly tapered/offset for gripping visual -->
+      <geometry>
+        <box size="0.03 0.012 0.021"/>
+      </geometry>
+      <material name="black_metal"/>
+    </visual>
+
+    <!-- Collision for Movable Arm (Simplified) -->
+    <collision name="movable_handle_collision">
+      <origin xyz="-0.105 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.15 0.027 0.027"/>
+      </geometry>
+    </collision>
+    <collision name="movable_handle_transition_collision">
+      <origin xyz="-0.0225 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.045 0.024 0.024"/>
+      </geometry>
+    </collision>
+    <collision name="movable_jaw_collision">
+      <origin xyz="0.05625 0 0.003" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0825 0.0225 0.021"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- ##################### JOINT DEFINITION ##################### -->
+  <joint name="pivot_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="movable_arm_link"/>
+    <!-- The origin of the joint is at the origin of the base_link (which is the pivot center) -->
+    <!-- The child link's origin is also placed at this same point -->
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/> <!-- Rotation around the Z-axis -->
+    <limit lower="0.4" upper="1.5" effort="100" velocity="1.0"/> <!-- Approx 40 degrees opening -->
+    <dynamics damping="0.1" friction="0.05"/>
+  </joint>
+
+</robot>

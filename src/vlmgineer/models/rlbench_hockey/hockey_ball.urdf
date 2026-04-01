@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot name="hockey_ball">
+    <link name="robot_base">
+        <inertial>
+            <origin xyz="0.258245 -0.188135 0.013814" rpy="3.141591 3.141592 -1.549853" />
+            <inertia izz="7.8400008791965e-06" iyy="7.8400008791965e-06" iyz="0.0" ixx="7.8400008791965e-06" ixy="0.0" ixz="0.0" />
+            <mass value="0.10000000149012" />
+        </inertial>
+        <collision name="hockey_ball">
+            <origin xyz="0.258245 -0.188135 0.013814" rpy="3.141591 3.141592 -1.549853" />
+            <geometry>
+                <sphere radius="0.014000000432134" />
+            </geometry>
+        </collision>
+        <visual name="hockey_ball">
+            <origin xyz="0.258245 -0.188135 0.013814" rpy="3.141591 3.141592 -1.549853" />
+            <geometry>
+                <sphere radius="0.014000000432134" />
+            </geometry>
+            <material name="robot_base_material">
+                <color rgba="1.000000 0.000000 0.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+</robot>

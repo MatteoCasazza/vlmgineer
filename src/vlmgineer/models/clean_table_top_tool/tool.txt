@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<robot name="broom">
+
+  <!-- brown material definition -->
+  <material name="brown">
+    <!-- rgba: R G B Alpha -->
+    <color rgba="0.545 0.271 0.075 1.0"/>
+  </material>
+
+  <link name="broom_link">
+    <inertial>
+      <origin xyz="0.05 0 0.074855" rpy="0 0 0" />
+      <inertia 
+        ixx="0.0001" ixy="0.0" ixz="0.0"
+        iyy="0.0001" iyz="0.0" izz="0.0"/>
+      <mass value="0.45" />
+    </inertial>
+
+    <!-- VISUAL: handle -->
+    <visual name="broom_handle_visual">
+      <origin xyz="0.1 0 0.21" rpy="2.705260 3.141593 -1.5708"/>
+      <geometry>
+        <box size="0.011 0.011 0.400000"/>
+      </geometry>
+      <material name="brown"/>
+    </visual>
+    <!-- COLLISION: handle -->
+    <collision name="broom_handle_collision">
+      <origin xyz="0.1 0 0.21" rpy="2.705260 3.141593 -1.5708"/>
+      <geometry>
+        <box size="0.011 0.011 0.400000"/>
+      </geometry>
+    </collision>
+
+    <!-- VISUAL: brush head -->
+    <visual name="broom_head_visual">
+      <origin xyz="0.20 0 0.02" rpy="0 0 1.5708"/>
+      <geometry>
+        <box size="0.262500 0.037500 0.037500"/>
+      </geometry>
+      <material name="brown"/>
+    </visual>
+    <!-- COLLISION: brush head -->
+    <collision name="broom_head_collision">
+      <origin xyz="0.20 0 0.02" rpy="0 0 1.5708"/>
+      <geometry>
+        <box size="0.262500 0.037500 0.037500"/>
+      </geometry>
+    </collision>
+
+  </link>
+  <joint name="virtual_joint2" type="fixed">
+    <parent link="panda_virtual"/>  
+    <child link="broom_link"/>
+    <origin xyz="0 0 -0.4" rpy="0 0 0"/>
+  </joint>
+
+</robot>

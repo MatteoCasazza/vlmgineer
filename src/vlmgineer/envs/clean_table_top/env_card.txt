@@ -1,0 +1,1 @@
+In this environment, the colorful cubes need to be pushed away from the robot and into a circular target zone marked by the green boundary. The task is considered successful when all cubes are within this circular zone.

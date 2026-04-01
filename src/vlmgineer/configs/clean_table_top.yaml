@@ -1,0 +1,21 @@
+### TASK NAME ###
+task_name: clean_table_top
+
+# sampling parameters
+model_name: gemini-2.5-pro-preview-03-25
+n_agent: 20
+n_tool_samples_batch_size: 10
+n_action_samples_batch_size: 10
+enable_gripper: False
+random_temperature: True
+random_gripper: False
+
+# evaluation parameters
+save_top_k: 5
+n_parallel_rollout_processes: 100
+check_self_collision: False
+
+# evolution parameters
+save_reward_threshold: 0.6
+stop_reward_threshold: 0.98
+n_evolution: 3

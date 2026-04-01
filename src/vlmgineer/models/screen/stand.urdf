@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<robot name="v_shape_cuboids_standing_with_com">
+
+  <!--
+    Apex link: we attach two legs here.
+    Its inertial is shifted so the COM lies halfway between the two free ends.
+  -->
+  <link name="base_link">
+    <inertial>
+      <!-- midpoint between (–0.7071,0,–0.7071) and (0.7071,0,–0.7071) = (0,0,–0.7071) -->
+      <origin xyz="0 0 -0.707107" rpy="0 0 0"/>
+      <!-- total mass of both legs -->
+      <mass value="2.0"/>
+      <!-- approximate combined inertia about that COM -->
+      <inertia
+        ixx="0.4183" ixy="0.0" ixz="0.0"
+        iyy="0.6683" iyz="0.0"
+        izz="0.2533"/>
+    </inertial>
+  </link>
+
+  <!-- Left leg: 1 m long along local Z, top at the joint -->
+  <link name="left_cuboid">
+    <visual>
+      <origin xyz="0 0 -0.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 1.0"/>
+      </geometry>
+      <material name="Gray">
+        <color rgba="0.6 0.6 0.6 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 1.0"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Right leg: same dimensions -->
+  <link name="right_cuboid">
+    <visual>
+      <origin xyz="0 0 -0.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 1.0"/>
+      </geometry>
+      <material name="Gray">
+        <color rgba="0.6 0.6 0.6 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 1.0"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Mount left leg pitched +45° about Y (tilts down toward –X) -->
+  <joint name="base_to_left" type="fixed">
+    <parent link="base_link"/>
+    <child  link="left_cuboid"/>
+    <origin xyz="0 0 0" rpy="0 0.785398 0"/>
+  </joint>
+
+  <!-- Mount right leg pitched –45° about Y (tilts down toward +X) -->
+  <joint name="base_to_right" type="fixed">
+    <parent link="base_link"/>
+    <child  link="right_cuboid"/>
+    <origin xyz="0 0 0" rpy="0 -0.785398 0"/>
+  </joint>
+
+</robot>

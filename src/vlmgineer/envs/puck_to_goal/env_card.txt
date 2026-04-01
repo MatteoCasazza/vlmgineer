@@ -1,0 +1,1 @@
+In this environment, the goal is to make the hockey puck end up in a far away goal!

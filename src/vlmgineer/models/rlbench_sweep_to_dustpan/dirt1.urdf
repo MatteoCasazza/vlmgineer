@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot name="dirt1">
+    <link name="robot_base">
+        <inertial>
+            <origin rpy="-3.141593 3.141593 -3.141593" xyz="0.275002 0.000002 0.025004" />
+            <inertia ixy="0.0" ixz="0.0" ixx="8.1380194155637e-12" izz="8.1380194155637e-12" iyz="0.0" iyy="8.1380194155637e-12" />
+            <mass value="4.8828115950528e-07" />
+        </inertial>
+        <collision name="dirt1">
+            <origin rpy="-3.141593 3.141593 -3.141593" xyz="0.275002 0.000002 0.025004" />
+            <geometry>
+                <box size="0.010000 0.010000 0.010000" />
+            </geometry>
+        </collision>
+        <visual name="dirt1">
+            <origin rpy="-3.141593 3.141593 -3.141593" xyz="0.275002 0.000002 0.025004" />
+            <geometry>
+                <box size="0.010000 0.010000 0.010000" />
+            </geometry>
+            <material name="robot_base_material">
+                <color rgba="0.460000 0.310000 0.310000 1.0" />
+            </material>
+        </visual>
+    </link>
+</robot>

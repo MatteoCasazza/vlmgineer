@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot name="hit_ball_with_queue_pocket0">
+    <link name="robot_base">
+        <inertial>
+            <origin rpy="0.000000 0.000000 0.000000" xyz="0.303998 0.149750 0.752999" />
+            <inertia iyy="0.0010572118600667" iyz="1.5656470670435e-11" ixx="0.00078661598519292" izz="3.3149268293965e-07" ixz="-5.8811612722704e-12" ixy="-3.9376787719559e-14" />
+            <mass value="0.067200005054474" />
+        </inertial>
+        <collision name="hit_ball_with_queue_pocket0">
+            <origin xyz="0.303998 0.149750 0.752999" rpy="3.141567 3.141615 -3.141592" />
+            <geometry>
+                <box size="0.007500 0.080000 0.005000" />
+            </geometry>
+        </collision>
+        <visual name="hit_ball_with_queue_pocket0">
+            <origin xyz="0.303998 0.149750 0.752999" rpy="3.141567 3.141615 -3.141592" />
+            <geometry>
+                <box size="0.007500 0.080000 0.005000" />
+            </geometry>
+            <material name="robot_base_material">
+                <color rgba="0.540000 1.000000 0.540000 1.0" />
+            </material>
+        </visual>
+    </link>
+</robot>

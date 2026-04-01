@@ -1,0 +1,3 @@
+This is a description of the "Put Cube In" Environment. In this environment, a franka robot is on a brown table. In front of it are two purple cubes on the table of side length 0.05 meters, and a box centered at [1.0, 0, 0.1] with box size [0.3, 0.4, 0.15]. The box is only open from the top.
+
+The task is to put the two cubes into the box with your tool and carefully designed action.

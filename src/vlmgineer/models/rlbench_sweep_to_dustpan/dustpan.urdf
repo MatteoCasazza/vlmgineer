@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot name="Dustpan_4">
+  <link name="robot_base">
+    <!-- Inertial: adjust mass & inertia to match your mesh -->
+    <inertial>
+        <origin xyz="0.249206 -0.326272 0.048338" rpy="-0.004184 4.681718 -3.137595"/>
+        <inertia ixx="0.041666664866109" ixy="0.0" ixz="0.0" iyy="0.041666664866109" iyz="0.0" izz="0.0083333333224678"/>
+        <mass value="4.9999995231628"/>
+    </inertial>
+    <!-- Collision meshes -->
+    <collision name="Dustpan_4_col">
+      <origin xyz="0.249206 -0.326272 0.048338" rpy="-0.004184 4.681718 -3.137595"/>
+      <geometry>
+        <mesh filename="dustpan_robot_base_vis_1.dae"/>
+      </geometry>
+    </collision>
+    <collision name="Dustpan_3_col">
+      <origin xyz="0.250150 -0.345628 0.078978" rpy="-2.360428 4.669018 2.359958"/>
+      <geometry>
+        <mesh filename="dustpan_Dustpan_3_vis_1.dae"/>
+      </geometry>
+    </collision>
+    <collision name="Dustpan_5_col">
+      <origin xyz="0.259549 -0.355126 0.384261" rpy="3.099872 3.129058 1.082189"/>
+      <geometry>
+        <mesh filename="dustpan_Dustpan_5_vis_1.dae"/>
+      </geometry>
+    </collision>
+
+    <!-- Visual meshes -->
+    <visual name="Dustpan_4_vis">
+      <origin xyz="0.249206 -0.326272 0.048338" rpy="-0.004184 4.681718 -3.137595"/>
+      <geometry>
+        <mesh filename="dustpan_robot_base_vis_1.dae"/>
+      </geometry>
+      <material name="robot_base_material">
+        <color rgba="0.100000 0.100000 0.100000 1.0"/>
+      </material>
+    </visual>
+    <visual name="Dustpan_3_vis">
+      <origin xyz="0.250150 -0.345628 0.078978" rpy="-2.360428 4.669018 2.359958"/>
+      <geometry>
+        <mesh filename="dustpan_Dustpan_3_vis_1.dae"/>
+      </geometry>
+      <material name="Dustpan_3_material">
+        <color rgba="0.000000 0.000000 0.000000 1.0"/>
+      </material>
+    </visual>
+    <visual name="Dustpan_5_vis">
+      <origin xyz="0.259549 -0.355126 0.384261" rpy="3.099872 3.129058 1.082189"/>
+      <geometry>
+        <mesh filename="dustpan_Dustpan_5_vis_1.dae"/>
+      </geometry>
+      <material name="Dustpan_5_material">
+        <color rgba="0.588200 0.588200 0.588200 1.0"/>
+      </material>
+    </visual>
+
+  </link>
+</robot>

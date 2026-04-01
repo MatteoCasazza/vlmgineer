@@ -1,0 +1,2 @@
+This is a description of the Move Ball Environment. In this environment, you want to move the red ball from the left side of the robot to the right side of the robot.
+

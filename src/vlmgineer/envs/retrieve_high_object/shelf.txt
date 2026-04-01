@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<robot name="steel_shelf">
+
+  <!-- All parts welded into one rigid body for simplicity -->
+  <link name="shelf_body">
+
+    <!-- ───────────────────────────────────────────────────
+         Inertial approximation (solid box, 20 kg)
+         ─────────────────────────────────────────────────── -->
+    <inertial>
+      <!-- CoM in the geometric centre -->
+      <origin xyz="0 0 0.45" rpy="0 0 0"/>
+      <mass value="20"/>
+      <!-- Ixx = 1/12·m·(h² + d²), etc. -->
+      <inertia ixx="1.617" ixy="0" ixz="0"
+               iyy="3.750" iyz="0"
+               izz="2.667"/>
+    </inertial>
+
+    <!-- =====  VISUAL & COLLISION GEOMETRY  ========================== -->
+    <!-- 1 TOP SHELF PLATE -->
+    <visual>
+      <origin xyz="0 0 0.885" rpy="0 0 0"/>
+      <geometry><box size="1.20 0.40 0.03"/></geometry>
+      <material name="steel"><color rgba="0.8 0.8 0.8 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.885" rpy="0 0 0"/>
+      <geometry><box size="1.20 0.40 0.03"/></geometry>
+    </collision>
+
+    <!-- 2) MID-SHELF PLATE -->
+    <!-- <visual>
+      <origin xyz="0 0 0.435" rpy="0 0 0"/>
+      <geometry><box size="1.20 0.40 0.03"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.435" rpy="0 0 0"/>
+      <geometry><box size="1.20 0.40 0.03"/></geometry>
+    </collision> -->
+
+    <!-- 3) FOUR VERTICAL POSTS (Ø 0.03 m) -->
+    <!-- left-front -->
+    <visual>
+      <origin xyz="-0.57  0.19 0.45" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.015" length="0.90"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.57  0.19 0.45" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.015" length="0.90"/></geometry>
+    </collision>
+
+    <!-- right-front -->
+    <visual>
+      <origin xyz=" 0.57  0.19 0.45" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.015" length="0.90"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz=" 0.57  0.19 0.45" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.015" length="0.90"/></geometry>
+    </collision>
+
+    <!-- left-rear -->
+    <visual>
+      <origin xyz="-0.57 -0.19 0.45" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.015" length="0.90"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.57 -0.19 0.45" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.015" length="0.90"/></geometry>
+    </collision>
+
+    <!-- right-rear -->
+    <visual>
+      <origin xyz=" 0.57 -0.19 0.45" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.015" length="0.90"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz=" 0.57 -0.19 0.45" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.015" length="0.90"/></geometry>
+    </collision>
+
+    <!-- 4) BASE RUNNERS (front & back) -->
+    <!-- front -->
+    <visual>
+      <origin xyz="0  0.19 0.015" rpy="0 0 0"/>
+      <geometry><box size="1.20 0.05 0.03"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0  0.19 0.015" rpy="0 0 0"/>
+      <geometry><box size="1.20 0.05 0.03"/></geometry>
+    </collision>
+
+    <!-- back -->
+    <visual>
+      <origin xyz="0 -0.19 0.015" rpy="0 0 0"/>
+      <geometry><box size="1.20 0.05 0.03"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.19 0.015" rpy="0 0 0"/>
+      <geometry><box size="1.20 0.05 0.03"/></geometry>
+    </collision>
+
+  </link>
+
+</robot>

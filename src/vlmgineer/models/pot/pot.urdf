@@ -1,0 +1,737 @@
+<robot name="hollow_short_chef_pot_manual_v4_corrected">
+
+  <material name="silver_steel">
+    <color rgba="0.8 0.8 0.8 1.0" />
+  </material>
+
+  <link name="pot_base_link">
+    <inertial>
+      <origin xyz="0 0 0.043750" rpy="0 0 0" />
+      <mass value="1.7" />
+      <inertia ixx="0.023" ixy="0.0" ixz="0.0" iyy="0.023" iyz="0.0" izz="0.032" />
+    </inertial>
+
+    
+    <visual name="pot_bottom_visual">
+      <origin xyz="0 0 0.002500" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.12" length="0.005" />
+      </geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="pot_bottom_collision">
+      <origin xyz="0 0 0.002500" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.12" length="0.005" />
+      </geometry>
+    </collision>
+    
+        
+    <visual name="wall_segment_0_visual">
+      <origin xyz="0.117750 0.000000 0.048750" rpy="0.000000 0.000000 0.000000" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_0_collision">
+      <origin xyz="0.117750 0.000000 0.048750" rpy="0.000000 0.000000 0.000000" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_1_visual">
+      <origin xyz="0.117183 0.011542 0.048750" rpy="0.000000 0.000000 0.098175" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_1_collision">
+      <origin xyz="0.117183 0.011542 0.048750" rpy="0.000000 0.000000 0.098175" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_2_visual">
+      <origin xyz="0.115487 0.022972 0.048750" rpy="0.000000 0.000000 0.196350" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_2_collision">
+      <origin xyz="0.115487 0.022972 0.048750" rpy="0.000000 0.000000 0.196350" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_3_visual">
+      <origin xyz="0.112680 0.034181 0.048750" rpy="0.000000 0.000000 0.294524" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_3_collision">
+      <origin xyz="0.112680 0.034181 0.048750" rpy="0.000000 0.000000 0.294524" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_4_visual">
+      <origin xyz="0.108787 0.045061 0.048750" rpy="0.000000 0.000000 0.392699" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_4_collision">
+      <origin xyz="0.108787 0.045061 0.048750" rpy="0.000000 0.000000 0.392699" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_5_visual">
+      <origin xyz="0.103846 0.055507 0.048750" rpy="0.000000 0.000000 0.490874" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_5_collision">
+      <origin xyz="0.103846 0.055507 0.048750" rpy="0.000000 0.000000 0.490874" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_6_visual">
+      <origin xyz="0.097906 0.065418 0.048750" rpy="0.000000 0.000000 0.589049" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_6_collision">
+      <origin xyz="0.097906 0.065418 0.048750" rpy="0.000000 0.000000 0.589049" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_7_visual">
+      <origin xyz="0.091022 0.074700 0.048750" rpy="0.000000 0.000000 0.687223" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_7_collision">
+      <origin xyz="0.091022 0.074700 0.048750" rpy="0.000000 0.000000 0.687223" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_8_visual">
+      <origin xyz="0.083262 0.083262 0.048750" rpy="0.000000 0.000000 0.785398" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_8_collision">
+      <origin xyz="0.083262 0.083262 0.048750" rpy="0.000000 0.000000 0.785398" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_9_visual">
+      <origin xyz="0.074700 0.091022 0.048750" rpy="0.000000 0.000000 0.883573" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_9_collision">
+      <origin xyz="0.074700 0.091022 0.048750" rpy="0.000000 0.000000 0.883573" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_10_visual">
+      <origin xyz="0.065418 0.097906 0.048750" rpy="0.000000 0.000000 0.981748" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_10_collision">
+      <origin xyz="0.065418 0.097906 0.048750" rpy="0.000000 0.000000 0.981748" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_11_visual">
+      <origin xyz="0.055507 0.103846 0.048750" rpy="0.000000 0.000000 1.079922" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_11_collision">
+      <origin xyz="0.055507 0.103846 0.048750" rpy="0.000000 0.000000 1.079922" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_12_visual">
+      <origin xyz="0.045061 0.108787 0.048750" rpy="0.000000 0.000000 1.178097" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_12_collision">
+      <origin xyz="0.045061 0.108787 0.048750" rpy="0.000000 0.000000 1.178097" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_13_visual">
+      <origin xyz="0.034181 0.112680 0.048750" rpy="0.000000 0.000000 1.276272" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_13_collision">
+      <origin xyz="0.034181 0.112680 0.048750" rpy="0.000000 0.000000 1.276272" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_14_visual">
+      <origin xyz="0.022972 0.115487 0.048750" rpy="0.000000 0.000000 1.374447" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_14_collision">
+      <origin xyz="0.022972 0.115487 0.048750" rpy="0.000000 0.000000 1.374447" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_15_visual">
+      <origin xyz="0.011542 0.117183 0.048750" rpy="0.000000 0.000000 1.472622" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_15_collision">
+      <origin xyz="0.011542 0.117183 0.048750" rpy="0.000000 0.000000 1.472622" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_16_visual">
+      <origin xyz="0.000000 0.117750 0.048750" rpy="0.000000 0.000000 1.570796" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_16_collision">
+      <origin xyz="0.000000 0.117750 0.048750" rpy="0.000000 0.000000 1.570796" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_17_visual">
+      <origin xyz="-0.011542 0.117183 0.048750" rpy="0.000000 0.000000 1.668971" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_17_collision">
+      <origin xyz="-0.011542 0.117183 0.048750" rpy="0.000000 0.000000 1.668971" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_18_visual">
+      <origin xyz="-0.022972 0.115487 0.048750" rpy="0.000000 0.000000 1.767146" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_18_collision">
+      <origin xyz="-0.022972 0.115487 0.048750" rpy="0.000000 0.000000 1.767146" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_19_visual">
+      <origin xyz="-0.034181 0.112680 0.048750" rpy="0.000000 0.000000 1.865321" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_19_collision">
+      <origin xyz="-0.034181 0.112680 0.048750" rpy="0.000000 0.000000 1.865321" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_20_visual">
+      <origin xyz="-0.045061 0.108787 0.048750" rpy="0.000000 0.000000 1.963495" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_20_collision">
+      <origin xyz="-0.045061 0.108787 0.048750" rpy="0.000000 0.000000 1.963495" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_21_visual">
+      <origin xyz="-0.055507 0.103846 0.048750" rpy="0.000000 0.000000 2.061670" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_21_collision">
+      <origin xyz="-0.055507 0.103846 0.048750" rpy="0.000000 0.000000 2.061670" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_22_visual">
+      <origin xyz="-0.065418 0.097906 0.048750" rpy="0.000000 0.000000 2.159845" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_22_collision">
+      <origin xyz="-0.065418 0.097906 0.048750" rpy="0.000000 0.000000 2.159845" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_23_visual">
+      <origin xyz="-0.074700 0.091022 0.048750" rpy="0.000000 0.000000 2.258020" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_23_collision">
+      <origin xyz="-0.074700 0.091022 0.048750" rpy="0.000000 0.000000 2.258020" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_24_visual">
+      <origin xyz="-0.083262 0.083262 0.048750" rpy="0.000000 0.000000 2.356194" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_24_collision">
+      <origin xyz="-0.083262 0.083262 0.048750" rpy="0.000000 0.000000 2.356194" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_25_visual">
+      <origin xyz="-0.091022 0.074700 0.048750" rpy="0.000000 0.000000 2.454369" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_25_collision">
+      <origin xyz="-0.091022 0.074700 0.048750" rpy="0.000000 0.000000 2.454369" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_26_visual">
+      <origin xyz="-0.097906 0.065418 0.048750" rpy="0.000000 0.000000 2.552544" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_26_collision">
+      <origin xyz="-0.097906 0.065418 0.048750" rpy="0.000000 0.000000 2.552544" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_27_visual">
+      <origin xyz="-0.103846 0.055507 0.048750" rpy="0.000000 0.000000 2.650719" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_27_collision">
+      <origin xyz="-0.103846 0.055507 0.048750" rpy="0.000000 0.000000 2.650719" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_28_visual">
+      <origin xyz="-0.108787 0.045061 0.048750" rpy="0.000000 0.000000 2.748894" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_28_collision">
+      <origin xyz="-0.108787 0.045061 0.048750" rpy="0.000000 0.000000 2.748894" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_29_visual">
+      <origin xyz="-0.112680 0.034181 0.048750" rpy="0.000000 0.000000 2.847068" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_29_collision">
+      <origin xyz="-0.112680 0.034181 0.048750" rpy="0.000000 0.000000 2.847068" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_30_visual">
+      <origin xyz="-0.115487 0.022972 0.048750" rpy="0.000000 0.000000 2.945243" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_30_collision">
+      <origin xyz="-0.115487 0.022972 0.048750" rpy="0.000000 0.000000 2.945243" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_31_visual">
+      <origin xyz="-0.117183 0.011542 0.048750" rpy="0.000000 0.000000 3.043418" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_31_collision">
+      <origin xyz="-0.117183 0.011542 0.048750" rpy="0.000000 0.000000 3.043418" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_32_visual">
+      <origin xyz="-0.117750 0.000000 0.048750" rpy="0.000000 0.000000 3.141593" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_32_collision">
+      <origin xyz="-0.117750 0.000000 0.048750" rpy="0.000000 0.000000 3.141593" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_33_visual">
+      <origin xyz="-0.117183 -0.011542 0.048750" rpy="0.000000 0.000000 3.239767" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_33_collision">
+      <origin xyz="-0.117183 -0.011542 0.048750" rpy="0.000000 0.000000 3.239767" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_34_visual">
+      <origin xyz="-0.115487 -0.022972 0.048750" rpy="0.000000 0.000000 3.337942" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_34_collision">
+      <origin xyz="-0.115487 -0.022972 0.048750" rpy="0.000000 0.000000 3.337942" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_35_visual">
+      <origin xyz="-0.112680 -0.034181 0.048750" rpy="0.000000 0.000000 3.436117" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_35_collision">
+      <origin xyz="-0.112680 -0.034181 0.048750" rpy="0.000000 0.000000 3.436117" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_36_visual">
+      <origin xyz="-0.108787 -0.045061 0.048750" rpy="0.000000 0.000000 3.534292" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_36_collision">
+      <origin xyz="-0.108787 -0.045061 0.048750" rpy="0.000000 0.000000 3.534292" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_37_visual">
+      <origin xyz="-0.103846 -0.055507 0.048750" rpy="0.000000 0.000000 3.632467" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_37_collision">
+      <origin xyz="-0.103846 -0.055507 0.048750" rpy="0.000000 0.000000 3.632467" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_38_visual">
+      <origin xyz="-0.097906 -0.065418 0.048750" rpy="0.000000 0.000000 3.730641" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_38_collision">
+      <origin xyz="-0.097906 -0.065418 0.048750" rpy="0.000000 0.000000 3.730641" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_39_visual">
+      <origin xyz="-0.091022 -0.074700 0.048750" rpy="0.000000 0.000000 3.828816" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_39_collision">
+      <origin xyz="-0.091022 -0.074700 0.048750" rpy="0.000000 0.000000 3.828816" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_40_visual">
+      <origin xyz="-0.083262 -0.083262 0.048750" rpy="0.000000 0.000000 3.926991" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_40_collision">
+      <origin xyz="-0.083262 -0.083262 0.048750" rpy="0.000000 0.000000 3.926991" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_41_visual">
+      <origin xyz="-0.074700 -0.091022 0.048750" rpy="0.000000 0.000000 4.025166" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_41_collision">
+      <origin xyz="-0.074700 -0.091022 0.048750" rpy="0.000000 0.000000 4.025166" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_42_visual">
+      <origin xyz="-0.065418 -0.097906 0.048750" rpy="0.000000 0.000000 4.123340" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_42_collision">
+      <origin xyz="-0.065418 -0.097906 0.048750" rpy="0.000000 0.000000 4.123340" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_43_visual">
+      <origin xyz="-0.055507 -0.103846 0.048750" rpy="0.000000 0.000000 4.221515" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_43_collision">
+      <origin xyz="-0.055507 -0.103846 0.048750" rpy="0.000000 0.000000 4.221515" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_44_visual">
+      <origin xyz="-0.045061 -0.108787 0.048750" rpy="0.000000 0.000000 4.319690" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_44_collision">
+      <origin xyz="-0.045061 -0.108787 0.048750" rpy="0.000000 0.000000 4.319690" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_45_visual">
+      <origin xyz="-0.034181 -0.112680 0.048750" rpy="0.000000 0.000000 4.417865" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_45_collision">
+      <origin xyz="-0.034181 -0.112680 0.048750" rpy="0.000000 0.000000 4.417865" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_46_visual">
+      <origin xyz="-0.022972 -0.115487 0.048750" rpy="0.000000 0.000000 4.516039" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_46_collision">
+      <origin xyz="-0.022972 -0.115487 0.048750" rpy="0.000000 0.000000 4.516039" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_47_visual">
+      <origin xyz="-0.011542 -0.117183 0.048750" rpy="0.000000 0.000000 4.614214" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_47_collision">
+      <origin xyz="-0.011542 -0.117183 0.048750" rpy="0.000000 0.000000 4.614214" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_48_visual">
+      <origin xyz="-0.000000 -0.117750 0.048750" rpy="0.000000 0.000000 4.712389" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_48_collision">
+      <origin xyz="-0.000000 -0.117750 0.048750" rpy="0.000000 0.000000 4.712389" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_49_visual">
+      <origin xyz="0.011542 -0.117183 0.048750" rpy="0.000000 0.000000 4.810564" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_49_collision">
+      <origin xyz="0.011542 -0.117183 0.048750" rpy="0.000000 0.000000 4.810564" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_50_visual">
+      <origin xyz="0.022972 -0.115487 0.048750" rpy="0.000000 0.000000 4.908739" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_50_collision">
+      <origin xyz="0.022972 -0.115487 0.048750" rpy="0.000000 0.000000 4.908739" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_51_visual">
+      <origin xyz="0.034181 -0.112680 0.048750" rpy="0.000000 0.000000 5.006913" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_51_collision">
+      <origin xyz="0.034181 -0.112680 0.048750" rpy="0.000000 0.000000 5.006913" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_52_visual">
+      <origin xyz="0.045061 -0.108787 0.048750" rpy="0.000000 0.000000 5.105088" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_52_collision">
+      <origin xyz="0.045061 -0.108787 0.048750" rpy="0.000000 0.000000 5.105088" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_53_visual">
+      <origin xyz="0.055507 -0.103846 0.048750" rpy="0.000000 0.000000 5.203263" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_53_collision">
+      <origin xyz="0.055507 -0.103846 0.048750" rpy="0.000000 0.000000 5.203263" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_54_visual">
+      <origin xyz="0.065418 -0.097906 0.048750" rpy="0.000000 0.000000 5.301438" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_54_collision">
+      <origin xyz="0.065418 -0.097906 0.048750" rpy="0.000000 0.000000 5.301438" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_55_visual">
+      <origin xyz="0.074700 -0.091022 0.048750" rpy="0.000000 0.000000 5.399612" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_55_collision">
+      <origin xyz="0.074700 -0.091022 0.048750" rpy="0.000000 0.000000 5.399612" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_56_visual">
+      <origin xyz="0.083262 -0.083262 0.048750" rpy="0.000000 0.000000 5.497787" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_56_collision">
+      <origin xyz="0.083262 -0.083262 0.048750" rpy="0.000000 0.000000 5.497787" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_57_visual">
+      <origin xyz="0.091022 -0.074700 0.048750" rpy="0.000000 0.000000 5.595962" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_57_collision">
+      <origin xyz="0.091022 -0.074700 0.048750" rpy="0.000000 0.000000 5.595962" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_58_visual">
+      <origin xyz="0.097906 -0.065418 0.048750" rpy="0.000000 0.000000 5.694137" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_58_collision">
+      <origin xyz="0.097906 -0.065418 0.048750" rpy="0.000000 0.000000 5.694137" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_59_visual">
+      <origin xyz="0.103846 -0.055507 0.048750" rpy="0.000000 0.000000 5.792311" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_59_collision">
+      <origin xyz="0.103846 -0.055507 0.048750" rpy="0.000000 0.000000 5.792311" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_60_visual">
+      <origin xyz="0.108787 -0.045061 0.048750" rpy="0.000000 0.000000 5.890486" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_60_collision">
+      <origin xyz="0.108787 -0.045061 0.048750" rpy="0.000000 0.000000 5.890486" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_61_visual">
+      <origin xyz="0.112680 -0.034181 0.048750" rpy="0.000000 0.000000 5.988661" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_61_collision">
+      <origin xyz="0.112680 -0.034181 0.048750" rpy="0.000000 0.000000 5.988661" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_62_visual">
+      <origin xyz="0.115487 -0.022972 0.048750" rpy="0.000000 0.000000 6.086836" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_62_collision">
+      <origin xyz="0.115487 -0.022972 0.048750" rpy="0.000000 0.000000 6.086836" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+    
+    <visual name="wall_segment_63_visual">
+      <origin xyz="0.117183 -0.011542 0.048750" rpy="0.000000 0.000000 6.185011" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+      <material name="silver_steel" />
+    </visual>
+    <collision name="wall_segment_63_collision">
+      <origin xyz="0.117183 -0.011542 0.048750" rpy="0.000000 0.000000 6.185011" />
+      <geometry><box size="0.004500 0.011776 0.087500" /></geometry>
+    </collision>
+
+
+    
+
+<visual name="handle1_vert1_visual">
+  <origin xyz="0.06 0.135 0.077500" rpy="1.57079632675 0 0" />
+  <geometry><cylinder radius="0.005" length="0.065" /></geometry>
+  <material name="silver_steel" />
+</visual>
+<collision name="handle1_vert1_collision">
+  <origin xyz="0.06 0.135 0.077500" rpy="1.57079632675 0 0" />
+  <geometry><cylinder radius="0.005" length="0.065" /></geometry>
+</collision>
+
+<visual name="handle1_vert2_visual">
+  <origin xyz="-0.06 0.135 0.077500" rpy="1.57079632675 0 0" />
+  <geometry><cylinder radius="0.005" length="0.065" /></geometry>
+  <material name="silver_steel" />
+</visual>
+<collision name="handle1_vert2_collision">
+  <origin xyz="-0.06 0.135 0.077500" rpy="1.57079632675 0 0" />
+  <geometry><cylinder radius="0.005" length="0.065" /></geometry>
+</collision>
+
+<visual name="handle1_horz_visual">
+  <origin xyz="0 0.165 0.077500" rpy="1.57079632675 0 1.57079632675" />
+  <geometry><cylinder radius="0.005" length="0.12" /></geometry>
+  <material name="silver_steel" />
+</visual>
+<collision name="handle1_horz_collision">
+  <origin xyz="0 0.165 0.077500" rpy="1.57079632675 0 1.57079632675" />
+  <geometry><cylinder radius="0.005" length="0.12" /></geometry>
+</collision>
+
+
+
+
+<visual name="handle2_vert1_visual">
+  <origin xyz="0.06 -0.135 0.077500" rpy="1.57079632675 0 0" />
+  <geometry><cylinder radius="0.005" length="0.065" /></geometry>
+  <material name="silver_steel" />
+</visual>
+<collision name="handle2_vert1_collision">
+  <origin xyz="0.06 -0.135 0.077500" rpy="1.57079632675 0 0" />
+  <geometry><cylinder radius="0.005" length="0.065" /></geometry>
+</collision>
+
+<visual name="handle2_vert2_visual">
+  <origin xyz="-0.06 -0.135 0.077500" rpy="1.57079632675 0 0" />
+  <geometry><cylinder radius="0.005" length="0.065" /></geometry>
+  <material name="silver_steel" />
+</visual>
+<collision name="handle2_vert2_collision">
+  <origin xyz="-0.06 -0.135 0.077500" rpy="1.57079632675 0 0" />
+  <geometry><cylinder radius="0.005" length="0.065" /></geometry>
+</collision>
+
+<visual name="handle2_horz_visual">
+  <origin xyz="0 -0.165 0.077500" rpy="1.57079632675 0 1.57079632675" />
+  <geometry><cylinder radius="0.005" length="0.12" /></geometry>
+  <material name="silver_steel" />
+</visual>
+<collision name="handle2_horz_collision">
+  <origin xyz="0 -0.165 0.077500" rpy="1.57079632675 0 1.57079632675" />
+  <geometry><cylinder radius="0.005" length="0.12" /></geometry>
+</collision>
+
+  </link>
+</robot>

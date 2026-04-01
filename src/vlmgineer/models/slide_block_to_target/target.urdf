@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot name="target">
+    <link name="robot_base">
+        <visual name="target">
+            <origin rpy="-3.141593 3.141593 -3.141593" xyz="0.275000 0.150000 0.003000" />
+            <geometry>
+                <mesh filename="file:///home/zizhe/vlm_ee/models/slide_block_to_target/target_robot_base_vis_1.dae" />
+            </geometry>
+            <material name="robot_base_material">
+                <color rgba="0.000000 0.680000 0.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+</robot>

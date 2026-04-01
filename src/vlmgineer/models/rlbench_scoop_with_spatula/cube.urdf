@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot name="Cuboid">
+    <link name="robot_base">
+        <inertial>
+            <origin rpy="3.141592 3.141615 3.141593" xyz="0.350000 -0.075000 0.062000" />
+            <inertia izz="6.6666660131887e-05" ixz="-2.0679515313826e-25" ixy="2.0608991148899e-29" iyz="0.0" ixx="6.6666660131887e-05" iyy="6.6666660131887e-05" />
+            <mass value="1.0" />
+        </inertial>
+        <collision name="Cuboid">
+            <origin xyz="0.350000 -0.075000 0.011876" rpy="3.141592 3.141615 3.141593" />
+            <geometry>
+                <box size="0.020000 0.020000 0.020000" />
+            </geometry>
+        </collision>
+        <visual name="Cuboid">
+            <origin xyz="0.350000 -0.075000 0.011876" rpy="3.141592 3.141615 3.141593" />
+            <geometry>
+                <box size="0.020000 0.020000 0.020000" />
+            </geometry>
+            <material name="robot_base_material">
+                <color rgba="0.850000 0.850000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+</robot>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot name="stick">
+    <link name="robot_base">
+        <inertial>
+            <origin rpy="-2.826280 4.390635 -1.901973" xyz="0.000000 -0.020858 0.059987" />
+            <inertia ixx="0.00063781521665107" ixy="0.0" iyy="0.00063781521665107" izz="1.6106125026411e-06" iyz="0.0" ixz="0.0" />
+            <mass value="0.058982398360968" />
+        </inertial>
+        <collision name="stick">
+            <origin rpy="-2.826280 4.390635 -1.901973" xyz="0.000000 -0.020858 0.059987" />
+            <geometry>
+                <box size="0.012800 0.012800 0.360000" />
+            </geometry>
+        </collision>
+        <visual name="stick">
+            <origin rpy="-2.826280 4.390635 -1.901973" xyz="0.000000 -0.020858 0.059987" />
+            <geometry>
+                <box size="0.012800 0.012800 0.360000" />
+            </geometry>
+            <material name="robot_base_material">
+                <color rgba="0.850000 0.850000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+</robot>

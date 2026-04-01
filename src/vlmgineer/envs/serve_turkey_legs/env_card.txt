@@ -1,0 +1,4 @@
+The objective in this environment is to design a tool and motion can dump the contains of the steel pot, which are turkey legs, into the chef's box, without the pot being dropped into the chef's box. The pot is handled effective by only interacting via its handles. You should spawn the tool away from the table to avoid collision, and then produce motion to use the tool to interact with the pot later. The task is fully succeeded when:
+1. All turkey legs inside the pot are transported into the chef's box
+2. The pot is not in the chef's box.
+

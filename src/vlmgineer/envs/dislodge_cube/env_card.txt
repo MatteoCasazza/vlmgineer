@@ -1,0 +1,3 @@
+This is a description of the Dislodge Cube Environment. In this environment, a red cube is trapped inside a white transparent pipe with two openings: one facing the franka (towards the negative x direction) and another on its front right corner opening to the right (towards the negative y direction). You should scrutinize the pipe urdf with intensity to gain a better spatial understanding. 
+
+Your task is to bring the cube out of the box with a tool that you design. We consider any scenario where the cube is completely out of the boundaries of the pipe as task success.

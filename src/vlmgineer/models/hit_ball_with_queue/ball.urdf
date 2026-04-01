@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot name="ball">
+    <link name="robot_base">
+        <inertial>
+            <origin rpy="-3.141593 3.141593 -3.141593" xyz="0.325000 -0.000000 0.761000" />
+            <inertia ixx="8.1648122820991e-08" ixy="9.0178224748735e-22" ixz="-2.0440593238477e-16" iyz="1.152705991788e-15" izz="8.1387005525338e-08" iyy="8.1648122820986e-08" />
+            <mass value="0.0020609709899873" />
+        </inertial>
+        <collision name="ball">
+            <origin xyz="0.325000 0.000000 0.761000" rpy="-3.141593 3.141593 -3.141593" />
+            <geometry>
+                <sphere radius="0.010000000707805" />
+            </geometry>
+        </collision>
+        <visual name="ball">
+            <origin xyz="0.325000 0.000000 0.761000" rpy="-3.141593 3.141593 -3.141593" />
+            <geometry>
+                <sphere radius="0.010000000707805" />
+            </geometry>
+            <material name="robot_base_material">
+                <color rgba="0.960000 0.960000 0.960000 1.0" />
+            </material>
+        </visual>
+    </link>
+</robot>

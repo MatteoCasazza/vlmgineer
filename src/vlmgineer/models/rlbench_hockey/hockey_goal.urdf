@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot name="hockey_goal">
+    <link name="robot_base">
+        <inertial>
+            <origin xyz="0.243986 0.166360 0.056423" rpy="0.021112 -1.570796 0.000000" />
+            <mass value="100"/>
+            <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001" />
+        </inertial>
+        <collision name="robot_base_collision">
+            <origin xyz="0.243986 0.166360 0.056423" rpy="0.021112 -1.570796 0.000000" />
+            <geometry>
+                <mesh filename="hockey_goal_robot_base_vis_1.dae" />
+            </geometry>
+        </collision>
+        <visual name="hockey_goal_visual">
+            <origin xyz="0.243986 0.166360 0.056423" rpy="0.021112 -1.570796 0.000000" />
+            <geometry>
+                <mesh filename="hockey_goal_robot_base_vis_1.dae" />
+            </geometry>
+            <material name="robot_base_material">
+                <color rgba="1.00000 1.00000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+</robot>

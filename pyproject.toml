@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vlmgineer"
+version = "0.1.0"
+description = "VLM-powered robotic tool design and action generation"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "VLMgineer Team"}
+]
+keywords = ["robotics", "vlm", "tool-design", "manipulation", "pybullet"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "numpy",
+    "pybullet",
+    "scipy",
+    "pyyaml",
+    "click",
+    "google-genai",
+    "pydantic",
+    "numpydantic",
+    "matplotlib",
+    "opencv-python",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "ruff",
+    "mypy",
+]
+
+[project.scripts]
+vlmgineer = "scripts.run_task:main"
+vlmgineer-benchmark = "scripts.run_benchmark:main"
+
+[project.urls]
+Homepage = "https://github.com/your-org/vlmgineer"
+Documentation = "https://github.com/your-org/vlmgineer#readme"
+Repository = "https://github.com/your-org/vlmgineer"
+Issues = "https://github.com/your-org/vlmgineer/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"vlmgineer" = [
+    "configs/*.yaml",
+    "models/**/*",
+    "prompts/**/*",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]

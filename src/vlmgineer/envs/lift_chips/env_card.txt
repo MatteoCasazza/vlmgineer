@@ -1,0 +1,1 @@
+This is a description of the Lift Chips Environment. In this environment, you want to lift the tube of potato chips up and bring it closer to the base.

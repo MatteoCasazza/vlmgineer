@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<robot name="wooden_box">
+
+  <material name="white_transparent">
+      <color rgba="0.96 0.87 0.70 0.8"/>
+  </material>
+
+  <!-- One rigid link made from 5 thin plates -->
+  <link name="box_body">
+
+    <!-- ─────────────────────────  inertial  ────────────────────────── -->
+    <inertial>
+      <!-- origin at geometric centre of outer volume -->
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="2.0"/>
+      <!-- Ixx = 1/12·m·(W²+H²) , etc.  Computed for 1.20×0.38×0.20 m, m=2 kg -->
+      <inertia ixx="0.0307" ixy="0" ixz="0"
+               iyy="0.2467" iyz="0"
+               izz="0.2641"/>
+    </inertial>
+
+    <!-- =================  bottom panel  ============================= -->
+    <!-- size: 1.20 × 0.38 × 0.015  centred 0.0925 m below main origin -->
+    <visual>
+      <origin xyz="0 0 -0.0925" rpy="0 0 0"/>
+      <geometry><box size="1.20 0.38 0.015"/></geometry>
+      <material name="white_transparent"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.0925" rpy="0 0 0"/>
+      <geometry><box size="1.20 0.38 0.015"/></geometry>
+    </collision>
+
+    <!-- ===============  front wall ( +Y )  ========================== -->
+    <visual>
+      <origin xyz="0  0.1825 -0.05" rpy="0 0 0"/>
+      <geometry><box size="1.20 0.015 0.10"/></geometry>
+      <material name="white_transparent"/>
+    </visual>
+    <collision>
+      <origin xyz="0  0.1825 -0.05" rpy="0 0 0"/>
+      <geometry><box size="1.20 0.015 0.10"/></geometry>
+    </collision>
+
+    <!-- ===============  back wall ( –Y )  =========================== -->
+    <visual>
+      <origin xyz="0 -0.1825 -0.05" rpy="0 0 0"/>
+      <geometry><box size="1.20 0.015 0.10"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 -0.1825 -0.05" rpy="0 0 0"/>
+      <geometry><box size="1.20 0.015 0.10"/></geometry>
+    </collision>
+
+    <!-- ===============  left wall ( –X )  =========================== -->
+    <visual>
+      <origin xyz="-0.5925 0 -0.05" rpy="0 0 0"/>
+      <geometry><box size="0.015 0.38 0.10"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.5925 0 -0.05" rpy="0 0 0"/>
+      <geometry><box size="0.015 0.38 0.10"/></geometry>
+    </collision>
+
+    <!-- ===============  right wall ( +X )  ========================== -->
+    <visual>
+      <origin xyz="0.5925 0 -0.05" rpy="0 0 0"/>
+      <geometry><box size="0.015 0.38 0.10"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.5925 0 -0.05" rpy="0 0 0"/>
+      <geometry><box size="0.015 0.38 0.10"/></geometry>
+    </collision>
+
+  </link>
+
+</robot>

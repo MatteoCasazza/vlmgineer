@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<robot name="concentric_target">
+
+  <!-- Define materials *before* they are referenced so PyBullet resolves them correctly -->
+  <material name="mat_white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  <material name="mat_red">
+    <color rgba="1 0 0 1"/>
+  </material>
+
+  <!-- ================= OUTER WHITE (root) ================= -->
+  <link name="outer_white">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.08" length="0.002"/>
+      </geometry>
+      <material name="mat_white"/>
+    </visual>
+  </link>
+
+  <!-- ================= RED RING ================= -->
+  <link name="red_ring">
+    <visual>
+      <origin xyz="0 0 0.003" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.06" length="0.002"/>
+      </geometry>
+      <material name="mat_red"/>
+    </visual>
+  </link>
+  <joint name="red_ring_fixed" type="fixed">
+    <parent link="outer_white"/>
+    <child link="red_ring"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- ================= INNER WHITE ================= -->
+  <link name="white_inner">
+    <visual>
+      <origin xyz="0 0 0.006" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.04" length="0.002"/>
+      </geometry>
+      <material name="mat_white"/>
+    </visual>
+  </link>
+  <joint name="white_inner_fixed" type="fixed">
+    <parent link="outer_white"/>
+    <child link="white_inner"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- ================= RED CENTER ================= -->
+  <link name="red_center">
+    <visual>
+      <origin xyz="0 0 0.009" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.02" length="0.002"/>
+      </geometry>
+      <material name="mat_red"/>
+    </visual>
+  </link>
+  <joint name="red_center_fixed" type="fixed">
+    <parent link="outer_white"/>
+    <child link="red_center"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+</robot>

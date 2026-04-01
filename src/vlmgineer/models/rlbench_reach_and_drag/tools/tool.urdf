@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot name="tool">
+<link name="stick">
+        <inertial>
+            <origin rpy="-2.826280 4.390635 -1.901973" xyz="0.000000 -0.020858 0.059987" />
+            <inertia iyy="0.00063781521665107" iyz="0.0" ixz="0.0" izz="1.6106125026411e-06" ixx="0.00063781521665107" ixy="0.0" />
+            <mass value="0.058982398360968" />
+        </inertial>
+        <collision name="stick">
+            <origin xyz="0.000000 -0.020858 0.059987" rpy="-2.826280 4.390635 -1.901973" />
+            <geometry>
+                <box size="0.012800 0.012800 0.360000" />
+            </geometry>
+        </collision>
+        <visual name="stick">
+            <origin xyz="0.000000 -0.020858 0.059987" rpy="-2.826280 4.390635 -1.901973" />
+            <geometry>
+                <box size="0.012800 0.012800 0.360000" />
+            </geometry>
+            <material name="robot_base_material">
+                <color rgba="0.850000 0.850000 1.000000 1.0" />
+            </material>
+        </visual>
+    </link>
+
+  <joint name="virtual_joint2" type="fixed">
+    <parent link="panda_virtual"/>  
+    <child link="stick"/>
+    <origin xyz="0.2 0 0.2" rpy="0 3.1415926535 -1.5707"/>
+  </joint>
+</robot>

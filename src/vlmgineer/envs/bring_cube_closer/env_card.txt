@@ -1,0 +1,1 @@
+This is a description of the Bring Cube Closer Environment. In this environment, the red cube is out of the reach of the robot and it needs to be closer (to the goal) for the robot to do further manipulation.

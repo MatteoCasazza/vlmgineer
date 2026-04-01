@@ -1,0 +1,20 @@
+### TASK NAME ###
+task_name: take_cookie_out_from_jar
+
+# sampling parameters
+model_name: gemini-2.5-pro-preview-03-25
+n_agent: 5 #30
+n_tool_samples_batch_size: 5 #15
+n_action_samples_batch_size: 5 #15
+enable_gripper: True
+random_temperature: True
+random_gripper: False
+
+# evaluation parameters
+save_top_k: 5
+n_parallel_rollout_processes: 100
+
+# evolution parameterss
+save_reward_threshold: 0.0
+stop_reward_threshold: 0.9
+n_evolution: 0

@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<robot name="container">
+  <material name="white_transparent">
+    <color rgba="1.0 1.0 1.0 0.5"/>
+  </material>
+
+  <!-- Base link -->
+  <link name="base_link" />
+
+  <!-- Wall 1 (right) -->
+  <link name="wall_right">
+    <visual>
+      <geometry>
+        <box size="0.3 0.01 0.2"/>
+      </geometry>
+      <material name="white_transparent"/>
+      <origin xyz="0 0 0.1" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.3 0.01 0.2"/>
+      </geometry>
+      <origin xyz="0 0 0.1" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.005" ixy="0.0" ixz="0.0" iyy="0.005" iyz="0.0" izz="0.005"/>
+    </inertial>
+  </link>
+
+  <!-- Wall 2 (left) -->
+  <link name="wall_left">
+    <visual>
+      <geometry>
+        <box size="0.3 0.01 0.2"/>
+      </geometry>
+      <material name="white_transparent"/>
+      <origin xyz="0 0 0.1" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.3 0.01 0.2"/>
+      </geometry>
+      <origin xyz="0 0 0.1" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.005" ixy="0.0" ixz="0.0" iyy="0.005" iyz="0.0" izz="0.005"/>
+    </inertial>
+  </link>
+
+  <!-- Wall 3 (front) -->
+  <link name="wall_front">
+    <visual>
+      <geometry>
+        <box size="0.01 0.3 0.2"/>
+      </geometry>
+      <material name="white_transparent"/>
+      <origin xyz="0 0 0.1" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.01 0.3 0.2"/>
+      </geometry>
+      <origin xyz="0 0 0.1" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.005" ixy="0.0" ixz="0.0" iyy="0.005" iyz="0.0" izz="0.005"/>
+    </inertial>
+  </link>
+
+  <!-- Joint connecting base to wall 1 (right) -->
+  <joint name="base_to_wall_right" type="fixed">
+    <parent link="base_link"/>
+    <child link="wall_right"/>
+    <origin xyz="0 -0.15 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Joint connecting base to wall 2 (left) -->
+  <joint name="base_to_wall_left" type="fixed">
+    <parent link="base_link"/>
+    <child link="wall_left"/>
+    <origin xyz="0 0.15 0" rpy="0 0 0"/>
+  </joint>
+
+
+  <!-- Joint connecting base to wall 3 (front) -->
+  <joint name="base_to_wall_front" type="fixed">
+    <parent link="base_link"/>
+    <child link="wall_front"/>
+    <origin xyz="0.15 0 0" rpy="0 0 0"/>
+  </joint>
+</robot>

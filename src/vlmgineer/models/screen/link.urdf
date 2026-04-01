@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot name="laid_down_cylinder">
+
+  <!-- Single link representing a horizontally oriented (laid-down) cylinder -->
+  <link name="cylinder_link">
+
+    <!-- Inertial properties -->
+    <inertial>
+      <!-- Center of mass at the geometric center; rotated so cylinder’s length lies along X -->
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <!-- Mass of 0.5 kg -->
+      <mass value="0.5"/>
+      <!-- Inertia for a solid cylinder (radius 0.02 m, length 1.0 m) whose principal axis is along X -->
+      <!-- ixx was izz before (axis along cylinder), and izz was ixx/iyy before -->
+      <inertia
+        ixx="0.00010"  ixy="0.0"    ixz="0.0"
+        iyy="0.04172"  iyz="0.0"
+        izz="0.04172"/>
+    </inertial>
+
+    <!-- Visual representation -->
+    <visual>
+      <!-- Rotate visual so the cylinder’s long axis points along X -->
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <geometry>
+        <!-- Radius 0.02 m, length 2.0 m -->
+        <cylinder radius="0.02" length="2.0"/>
+      </geometry>
+      <material name="SmoothWhite">
+        <color rgba="1.0 1.0 1.0 1.0"/>
+      </material>
+    </visual>
+
+    <!-- Collision geometry (matches visual) -->
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <geometry>
+        <cylinder radius="0.02" length="1.0"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+</robot>

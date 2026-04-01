@@ -1,0 +1,1 @@
+This is a description of the Take-Close-Object-Out Environment. In this environment, a franka robot is on the table with a 2 book holders and 5 books between the holders in front of it. In this environment, we would like to pull out the book in the middle (The 3rd book) and try to keep other books in their origin positions.

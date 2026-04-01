@@ -1,0 +1,1 @@
+In this environment, we would like to retrieve the green cube from the top of the shelf. The task is successful when the cube drops into the beige box that is in between the shelf and the robot!
