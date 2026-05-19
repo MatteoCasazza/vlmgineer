@@ -181,6 +181,23 @@ def check_robot_collisions(robot_id, object_body_ids, object_types):
 
     return forbidden_collisions, allowed_contacts
 
+def snap_objects_to_table_surface(layout):
+    tables = [obj for obj in layout["objects"] if obj["object_type"] == "table"]
+
+    if not tables:
+        return layout
+
+    table = tables[0]
+    table_top_z = table["position"][2] + table["dimensions"][2] / 2.0
+
+    surface_object_types = ["task_object", "target_area", "obstacle"]
+
+    for obj in layout["objects"]:
+        if obj["object_type"] in surface_object_types:
+            obj_height = obj["dimensions"][2]
+            obj["position"][2] = table_top_z + obj_height / 2.0
+
+    return layout
 
 def main():
     results_file = find_latest_layout_results()
@@ -191,6 +208,7 @@ def main():
         data = json.load(f)
 
     best_layout = data["best_layout"]["layout"]
+    best_layout = snap_objects_to_table_surface(best_layout)
 
     print("\nVisualizing best layout:")
     print(best_layout["layout_name"])
@@ -211,57 +229,65 @@ def main():
 
     for obj in best_layout["objects"]:
         if obj["object_type"] == "robot_base":
-            print("Loading Panda robot at:", obj["position"])
+            robot_base_position = [
+                obj["position"][0],
+                obj["position"][1],
+                0.0,
+            ]
+
+            print("Loading Panda robot at:", robot_base_position)
+
             robot_id = p.loadURDF(
                 "franka_panda/panda.urdf",
-                basePosition=obj["position"],
+                basePosition=robot_base_position,
                 baseOrientation=p.getQuaternionFromEuler(obj["orientation"]),
                 useFixedBase=True,
+                flags=p.URDF_USE_SELF_COLLISION_EXCLUDE_PARENT,
             )
         else:
             body_id = spawn_box(obj)
             object_body_ids[obj["object_name"]] = body_id
             object_types[obj["object_name"]] = obj["object_type"]
 
-    if robot_id is not None:
-        reachability_results = check_robot_reachability(
-            robot_id,
-            best_layout["objects"],
-            object_body_ids,
-            object_types,
-        )
+    # if robot_id is not None:
+    #     reachability_results = check_robot_reachability(
+    #         robot_id,
+    #         best_layout["objects"],
+    #         object_body_ids,
+    #         object_types,
+    #     )
 
-        print("\n=== TRUE IK + COLLISION FEASIBILITY CHECK ===")
-        for result in reachability_results:
-            error_text = "None" if result["ik_error"] is None else f"{result['ik_error']:.4f}"
+    #     print("\n=== TRUE IK + COLLISION FEASIBILITY CHECK ===")
+    #     for result in reachability_results:
+    #         error_text = "None" if result["ik_error"] is None else f"{result['ik_error']:.4f}"
 
-            print(
-                f"{result['object_name']} | "
-                f"reachable={result['reachable']} | "
-                f"ik_error={error_text} | "
-                f"collision_free={result['collision_free']} | "
-                f"physically_feasible={result['physically_feasible']}"
-            )
+    #         print(
+    #             f"{result['object_name']} | "
+    #             f"reachable={result['reachable']} | "
+    #             f"ik_error={error_text} | "
+    #             f"collision_free={result['collision_free']} | "
+    #             f"physically_feasible={result['physically_feasible']}"
+    #         )
 
-            if result["allowed_contacts"]:
-                print("  Allowed contacts:")
-                for col in result["allowed_contacts"]:
-                    print(
-                        f"    - {col['object_name']} "
-                        f"[{col['object_type']}] "
-                        f"({col['num_contacts']} contacts)"
-                    )
+    #         if result["allowed_contacts"]:
+    #             print("  Allowed contacts:")
+    #             for col in result["allowed_contacts"]:
+    #                 print(
+    #                     f"    - {col['object_name']} "
+    #                     f"[{col['object_type']}] "
+    #                     f"({col['num_contacts']} contacts)"
+    #                 )
 
-            if result["forbidden_collisions"]:
-                print("  Forbidden collisions:")
-                for col in result["forbidden_collisions"]:
-                    print(
-                        f"    - {col['object_name']} "
-                        f"[{col['object_type']}] "
-                        f"({col['num_contacts']} contacts)"
-                    )
-    else:
-        print("No robot found, skipping IK reachability check.")
+    #         if result["forbidden_collisions"]:
+    #             print("  Forbidden collisions:")
+    #             for col in result["forbidden_collisions"]:
+    #                 print(
+    #                     f"    - {col['object_name']} "
+    #                     f"[{col['object_type']}] "
+    #                     f"({col['num_contacts']} contacts)"
+    #                 )
+    # else:
+    #     print("No robot found, skipping IK reachability check.")
 
     p.resetDebugVisualizerCamera(
         cameraDistance=2.0,

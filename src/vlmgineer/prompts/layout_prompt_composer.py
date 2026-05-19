@@ -59,6 +59,19 @@ Important physical constraints:
 - Task objects and target areas should be placed within 0.45 m to 0.75 m from the robot base in the XY plane.
 - Avoid placing pick/place locations farther than 0.8 m from the robot base.
 - Prefer table positions that allow the nearest task objects to remain reachable while preserving robot-table clearance.
+- Pick and place locations should be at least 0.15 m away from table edges.
+- Avoid placing pick/place targets too close to table borders or obstacles.
+- The robot should be able to approach each task object from above with at least 0.05 m clearance from forbidden objects.
+- Prefer pick/place positions near the front half of the table, not deep inside the tabletop.
+
+Additional robot feasibility constraints:
+- Pick and place objects should be located in front of the robot, not too close to the robot base.
+- Prefer object XY distances from the robot base between 0.35 m and 0.60 m.
+- Avoid placing objects directly under the robot wrist or too close to the robot base.
+- Leave enough free space above each task object for a top-down end-effector approach.
+- For Panda-like robot validation, prefer targets near the center-front region of the table.
+- Avoid very compact corner layouts where the robot wrist must fold into the table.
+- Keep at least 0.10 m free horizontal clearance around each pick/place object.
 """
 
     def get_output_format_prompt(self) -> str:

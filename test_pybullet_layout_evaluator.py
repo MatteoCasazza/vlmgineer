@@ -41,8 +41,19 @@ def main():
                 f"  - {detail['object_name']} | "
                 f"reachable={detail['reachable']} | "
                 f"collision_free={detail['collision_free']} | "
-                f"physically_feasible={detail['physically_feasible']}"
+                f"physically_feasible={detail['physically_feasible']} | "
+                f"trajectory_collision={detail['trajectory_collision']} |"
+                f"safety_margin_ok={detail['safety_margin']['safety_margin_ok']}"
             )
+
+            if not detail["safety_margin"]["safety_margin_ok"]:
+                print("    safety margin violations:")
+                for obj in detail["safety_margin"]["too_close_objects"]:
+                    print(
+                        f"      * {obj['object_name']} "
+                        f"[{obj['object_type']}] "
+                        f"min_distance={obj['min_distance']:.4f}"
+                    )
 
             if detail["forbidden_collisions"]:
                 print("    forbidden collisions:")
