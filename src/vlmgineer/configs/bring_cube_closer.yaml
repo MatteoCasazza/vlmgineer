@@ -1,23 +1,23 @@
 ### TASK NAME ###
 task_name: bring_cube_closer
 
-# sampling parameters
-model_name: gemini-2.5-pro
-n_agent: 5
-n_tool_samples_batch_size: 5
-n_action_samples_batch_size: 5
+# sampling parameters 
+model_name: gemini-2.5-flash  #gemini-2.5-pro
+n_agent: 1 #5
+n_tool_samples_batch_size: 1 #5
+n_action_samples_batch_size: 1 #5
 enable_gripper: False
 random_temperature: True
 random_gripper: False
 
 # evaluation parameters
-save_top_k: 5
-n_parallel_rollout_processes: 50
+save_top_k: 1 #5
+n_parallel_rollout_processes: 1 #50
 check_self_collision: False
 
 # evolution parameters
-save_reward_threshold: 0.6
+save_reward_threshold: 0.0 #0.6
 stop_reward_threshold: 0.98
-n_evolution: 1
+n_evolution: 0 #1
 
 
