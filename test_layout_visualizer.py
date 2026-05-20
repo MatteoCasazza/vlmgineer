@@ -84,103 +84,6 @@ def draw_world_axes():
     p.addUserDebugText("Z", [0, 0, axis_length], textSize=1.2)
 
 
-def check_robot_reachability(robot_id, objects, object_body_ids, object_types):
-    ee_link_index = 11  # Franka Panda end-effector link in pybullet_data model
-
-    reachable_results = []
-
-    for obj in objects:
-        if obj["object_type"] not in ["task_object", "target_area"]:
-            continue
-
-        target_pos = obj["position"]
-
-        ik_solution = p.calculateInverseKinematics(
-            robot_id,
-            ee_link_index,
-            target_pos,
-        )
-
-        if ik_solution is None or len(ik_solution) == 0:
-            reachable = False
-            error = None
-
-            forbidden_collisions = []
-            allowed_contacts = []
-            
-            collision_free = False
-
-        else:
-            for joint_idx in range(7):
-                p.resetJointState(robot_id, joint_idx, ik_solution[joint_idx])
-
-            p.stepSimulation()
-
-            ee_state = p.getLinkState(robot_id, ee_link_index)
-            ee_pos = ee_state[0]
-
-            error = (
-                (ee_pos[0] - target_pos[0]) ** 2
-                + (ee_pos[1] - target_pos[1]) ** 2
-                + (ee_pos[2] - target_pos[2]) ** 2
-            ) ** 0.5
-
-            reachable = error < 0.08
-
-            forbidden_collisions, allowed_contacts = check_robot_collisions(
-                robot_id,
-                object_body_ids,
-                object_types,
-            )
-
-            collision_free = len(forbidden_collisions) == 0
-
-        physically_feasible = reachable and collision_free
-
-        reachable_results.append({
-            "object_name": obj["object_name"],
-            "object_type": obj["object_type"],
-            "target_position": target_pos,
-            "reachable": reachable,
-            "ik_error": error,
-            "collision_free": collision_free,
-            "forbidden_collisions": forbidden_collisions,
-            "allowed_contacts":allowed_contacts,
-            "physically_feasible": physically_feasible,
-        })
-
-    return reachable_results
-
-
-def check_robot_collisions(robot_id, object_body_ids, object_types):
-    p.performCollisionDetection()
-
-    forbidden_collisions = []
-    allowed_contacts = []
-
-    allowed_contact_types = ["task_object", "target_area"]
-
-    for obj_name, body_id in object_body_ids.items():
-        contact_points = p.getContactPoints(robot_id, body_id)
-
-        if len(contact_points) == 0:
-            continue
-
-        obj_type = object_types[obj_name]
-
-        contact_info = {
-            "object_name": obj_name,
-            "object_type": obj_type,
-            "num_contacts": len(contact_points),
-        }
-
-        if obj_type in allowed_contact_types:
-            allowed_contacts.append(contact_info)
-        else:
-            forbidden_collisions.append(contact_info)
-
-    return forbidden_collisions, allowed_contacts
-
 def snap_objects_to_table_surface(layout):
     tables = [obj for obj in layout["objects"] if obj["object_type"] == "table"]
 
@@ -249,45 +152,11 @@ def main():
             object_body_ids[obj["object_name"]] = body_id
             object_types[obj["object_name"]] = obj["object_type"]
 
-    # if robot_id is not None:
-    #     reachability_results = check_robot_reachability(
-    #         robot_id,
-    #         best_layout["objects"],
-    #         object_body_ids,
-    #         object_types,
-    #     )
-
-    #     print("\n=== TRUE IK + COLLISION FEASIBILITY CHECK ===")
-    #     for result in reachability_results:
-    #         error_text = "None" if result["ik_error"] is None else f"{result['ik_error']:.4f}"
-
-    #         print(
-    #             f"{result['object_name']} | "
-    #             f"reachable={result['reachable']} | "
-    #             f"ik_error={error_text} | "
-    #             f"collision_free={result['collision_free']} | "
-    #             f"physically_feasible={result['physically_feasible']}"
-    #         )
-
-    #         if result["allowed_contacts"]:
-    #             print("  Allowed contacts:")
-    #             for col in result["allowed_contacts"]:
-    #                 print(
-    #                     f"    - {col['object_name']} "
-    #                     f"[{col['object_type']}] "
-    #                     f"({col['num_contacts']} contacts)"
-    #                 )
-
-    #         if result["forbidden_collisions"]:
-    #             print("  Forbidden collisions:")
-    #             for col in result["forbidden_collisions"]:
-    #                 print(
-    #                     f"    - {col['object_name']} "
-    #                     f"[{col['object_type']}] "
-    #                     f"({col['num_contacts']} contacts)"
-    #                 )
-    # else:
-    #     print("No robot found, skipping IK reachability check.")
+    if robot_id is not None:
+        print("\nVisualizer mode: scene loaded.")
+        print("Physical validation is handled by PyBulletLayoutEvaluator.")
+    else:
+        print("No robot found.")
 
     p.resetDebugVisualizerCamera(
         cameraDistance=2.0,

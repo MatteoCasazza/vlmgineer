@@ -215,6 +215,7 @@ class PyBulletLayoutEvaluator:
             if ik_solution is None or len(ik_solution) == 0:
                 reachable = False
                 error = None
+                ik_joint_solution = None
                 forbidden_collisions = []
                 allowed_contacts = []
                 collision_free = False
@@ -222,6 +223,7 @@ class PyBulletLayoutEvaluator:
                 for joint_idx in range(7):
                     p.resetJointState(robot_id, joint_idx, ik_solution[joint_idx])
 
+                ik_joint_solution = list(ik_solution[:7])
                 p.stepSimulation()
 
                 ee_state = p.getLinkState(robot_id, self.ee_link_index)
@@ -270,6 +272,7 @@ class PyBulletLayoutEvaluator:
                 "physically_feasible": physically_feasible,
                 "trajectory_collision": trajectory_collision,
                 "safety_margin": safety_margin_result,
+                "ik_joint_solution": ik_joint_solution,
             })
 
         return results
